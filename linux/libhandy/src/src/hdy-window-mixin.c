@@ -352,10 +352,12 @@ hdy_window_mixin_draw (HdyWindowMixin *self,
     GtkBorder shadow;
 
     /* Use the parent drawing unless we have a reason to use masking */
-    if (!gtk_window_get_decorated (self->window) ||
-        !supports_client_shadow (self) ||
-        is_fullscreen (self))
-      return GTK_WIDGET_CLASS (self->klass)->draw (GTK_WIDGET (self->window), cr);
+    // if (!gtk_window_get_decorated (self->window) ||
+    //    supports_client_shadow (self)) {
+    //    if(!is_fullscreen (self)) {
+    //        return GTK_WIDGET_CLASS (self->klass)->draw (GTK_WIDGET (self->window), cr);
+    //    }
+    // }
 
     context = gtk_widget_get_style_context (widget);
 
